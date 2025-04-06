@@ -25,8 +25,8 @@ const secondaryNavigation = [
 const AppDrawer: React.FC<AppDrawerProps> = ({ open, onClose }) => {
   return (
     <Sheet open={open} onOpenChange={onClose}>
-      <SheetContent side="left" className="w-[250px] p-0 bg-japan-shoji border-r border-japan-sand">
-        <SheetHeader className="p-4 border-b border-japan-sand">
+      <SheetContent side="left" className="w-[250px] p-0 bg-white border-r border-japan-sand">
+        <SheetHeader className="p-4 border-b border-japan-sand bg-japan-shoji">
           <SheetTitle className="text-lg font-semibold flex items-center text-japan-indigo">
             <BarChart4 className="h-5 w-5 mr-2 text-japan-fuji" />
             Asset Vue
@@ -43,8 +43,8 @@ const AppDrawer: React.FC<AppDrawerProps> = ({ open, onClose }) => {
                   cn(
                     "flex items-center px-2 py-2 text-base rounded-md",
                     isActive
-                      ? "bg-japan-sakura/10 text-japan-indigo font-medium"
-                      : "text-japan-sumi hover:bg-japan-sand/40 hover:text-japan-indigo"
+                      ? "bg-japan-sakura/15 text-japan-indigo font-medium"
+                      : "text-japan-sumi hover:bg-japan-sand/50 hover:text-japan-indigo"
                   )
                 }
                 onClick={onClose}
@@ -61,7 +61,7 @@ const AppDrawer: React.FC<AppDrawerProps> = ({ open, onClose }) => {
           </nav>
         </div>
         
-        <div className="pt-4 mt-4 border-t border-japan-sand">
+        <div className="pt-4 mt-4 border-t border-japan-sand bg-japan-shoji/50">
           <div className="px-2">
             <h3 className="px-3 text-xs font-semibold text-japan-tea uppercase tracking-wider">
               More Options
@@ -75,8 +75,8 @@ const AppDrawer: React.FC<AppDrawerProps> = ({ open, onClose }) => {
                     cn(
                       "flex items-center px-2 py-2 text-base rounded-md",
                       isActive
-                        ? "bg-japan-sakura/10 text-japan-indigo font-medium"
-                        : "text-japan-sumi hover:bg-japan-sand/40 hover:text-japan-indigo"
+                        ? "bg-japan-sakura/15 text-japan-indigo font-medium"
+                        : "text-japan-sumi hover:bg-japan-sand/50 hover:text-japan-indigo"
                     )
                   }
                   onClick={onClose}
