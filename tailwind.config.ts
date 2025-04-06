@@ -70,6 +70,19 @@ export default {
 					neutral: '#78909c',
 					chart: '#2196f3',
 					highlight: '#ffeb3b'
+				},
+				// Japanese theme colors
+				japan: {
+					sakura: '#FFB7C5',  // Cherry blossom pink
+					matcha: '#879C61',  // Matcha green
+					fuji: '#8B6E94',    // Fuji purple
+					hinoki: '#D6AA54',  // Hinoki wood
+					shoji: '#F7F3E8',   // Shoji paper
+					sumi: '#424242',    // Sumi ink
+					indigo: '#1A237E',  // Japanese indigo
+					maple: '#A94545',   // Japanese maple red
+					sand: '#E6DDC6',    // Zen garden sand
+					tea: '#D0B49F'      // Tea ceremony
 				}
 			},
 			borderRadius: {

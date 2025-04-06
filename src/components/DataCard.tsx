@@ -13,17 +13,17 @@ interface DataCardProps {
 
 const DataCard: React.FC<DataCardProps> = ({ title, value, icon, trend, className }) => {
   return (
-    <Card className={cn("overflow-hidden", className)}>
+    <Card className={cn("overflow-hidden border-japan-sand bg-japan-shoji/90 backdrop-blur-sm transition-all hover:shadow-md", className)}>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
-        {icon && <div className="text-muted-foreground">{icon}</div>}
+        <CardTitle className="text-sm font-medium text-japan-sumi">{title}</CardTitle>
+        {icon && <div className="text-japan-fuji">{icon}</div>}
       </CardHeader>
       <CardContent>
         <div className={cn(
           "text-2xl font-bold",
-          trend === 'up' && "text-financial-green",
-          trend === 'down' && "text-financial-red",
-          trend === 'neutral' && "text-financial-neutral"
+          trend === 'up' && "text-japan-matcha",
+          trend === 'down' && "text-japan-maple",
+          trend === 'neutral' && "text-japan-tea"
         )}>
           {value}
         </div>

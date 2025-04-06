@@ -5,47 +5,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 45 33% 98%;
+    --foreground: 0 0% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 45 33% 99%;
+    --card-foreground: 0 0% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 45 33% 99%;
+    --popover-foreground: 0 0% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 350 85% 75%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 109 24% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 45 16% 92%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 277 23% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 45 16% 85%;
+    --input: 45 16% 85%;
+    --ring: 350 85% 75%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 45 33% 97%;
+    --sidebar-foreground: 0 0% 12%;
+    --sidebar-primary: 350 85% 75%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 45 16% 92%;
+    --sidebar-accent-foreground: 0 0% 12%;
+    --sidebar-border: 45 16% 85%;
+    --sidebar-ring: 350 85% 75%;
   }
 
   .dark {
+    /* Keep the dark theme, but we're not using it right now */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -92,30 +93,56 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F7F3E8' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 }
 
 /* Finance-specific styling */
 .positive-value {
-  @apply text-financial-green font-medium;
+  @apply text-japan-matcha font-medium;
 }
 
 .negative-value {
-  @apply text-financial-red font-medium;
+  @apply text-japan-maple font-medium;
 }
 
 .neutral-value {
-  @apply text-financial-neutral;
+  @apply text-japan-tea;
 }
 
 .ltv-safe {
-  @apply bg-financial-green/10 text-financial-green font-medium px-2 py-0.5 rounded-sm;
+  @apply bg-japan-matcha/10 text-japan-matcha font-medium px-2 py-0.5 rounded-sm;
 }
 
 .ltv-warning {
-  @apply bg-financial-highlight/10 text-financial-highlight font-medium px-2 py-0.5 rounded-sm;
+  @apply bg-japan-hinoki/10 text-japan-hinoki font-medium px-2 py-0.5 rounded-sm;
 }
 
 .ltv-danger {
-  @apply bg-financial-red/10 text-financial-red font-medium px-2 py-0.5 rounded-sm;
+  @apply bg-japan-maple/10 text-japan-maple font-medium px-2 py-0.5 rounded-sm;
+}
+
+/* Japanese-inspired styling */
+.japan-card {
+  @apply border-japan-sand bg-japan-shoji/80 shadow-sm backdrop-blur-sm;
+}
+
+.zen-input {
+  @apply bg-japan-shoji border-japan-sand focus:border-japan-sakura focus:ring-japan-sakura/30;
+}
+
+.sakura-button {
+  @apply bg-japan-sakura text-white hover:bg-japan-sakura/90 focus:ring-japan-sakura/30;
+}
+
+.matcha-button {
+  @apply bg-japan-matcha text-white hover:bg-japan-matcha/90 focus:ring-japan-matcha/30;
+}
+
+.fuji-button {
+  @apply bg-japan-fuji text-white hover:bg-japan-fuji/90 focus:ring-japan-fuji/30;
+}
+
+.hinoki-button {
+  @apply bg-japan-hinoki text-white hover:bg-japan-hinoki/90 focus:ring-japan-hinoki/30;
 }
