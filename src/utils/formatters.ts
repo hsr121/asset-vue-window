@@ -1,74 +1,33 @@
 
-/**
- * Format currency values
- */
-export const formatCurrency = (value: number, currency = 'USD'): string => {
+// Format a number with commas (e.g., 1,234,567)
+export const formatNumber = (value: number, minimumFractionDigits = 0, maximumFractionDigits = 0): string => {
   return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency,
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+    minimumFractionDigits,
+    maximumFractionDigits
   }).format(value);
 };
 
-/**
- * Format market cap values with appropriate suffixes (B, M, etc.)
- */
-export const formatMarketCap = (value: number): string => {
-  if (value >= 1000000000000) {
-    return `$${(value / 1000000000000).toFixed(2)}T`;
-  }
-  if (value >= 1000000000) {
-    return `$${(value / 1000000000).toFixed(2)}B`;
-  }
-  if (value >= 1000000) {
-    return `$${(value / 1000000).toFixed(2)}M`;
-  }
-  return formatCurrency(value);
+// Format a number as currency (e.g., $1,234.56)
+export const formatCurrency = (value: number): string => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(value);
 };
 
-/**
- * Format volume values with appropriate suffixes
- */
-export const formatVolume = (value: number): string => {
-  if (value >= 1000000000) {
-    return `${(value / 1000000000).toFixed(2)}B`;
-  }
-  if (value >= 1000000) {
-    return `${(value / 1000000).toFixed(2)}M`;
-  }
-  if (value >= 1000) {
-    return `${(value / 1000).toFixed(2)}K`;
-  }
-  return value.toString();
-};
-
-/**
- * Format percentage values
- */
+// Format a number as a percentage (e.g., +1.23%)
 export const formatPercent = (value: number): string => {
-  return `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`;
+  const sign = value > 0 ? '+' : '';
+  return `${sign}${new Intl.NumberFormat('en-US', {
+    style: 'percent',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(value / 100)}`;
 };
 
-/**
- * Determine loan-to-value class based on the LTV percentage
- */
-export const getLtvClass = (ltvPercent: number): string => {
-  if (ltvPercent < 65) return 'ltv-safe';
-  if (ltvPercent < 80) return 'ltv-warning';
-  return 'ltv-danger';
-};
-
-/**
- * Format a date from ISO string
- */
-export const formatDate = (isoString: string): string => {
-  const date = new Date(isoString);
-  return date.toLocaleString('en-US', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
+// Format a risk rating
+export const formatRiskRating = (rating: 'low' | 'medium' | 'high'): string => {
+  return rating.charAt(0).toUpperCase() + rating.slice(1);
 };
